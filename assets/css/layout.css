@@ -10,7 +10,7 @@ body {
 page-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: min-content 1fr min-content;
   gap: 1rem;
   padding: 1rem;
   height: 100vh; /* native sticky page header/footer */
@@ -25,18 +25,18 @@ page-panel {
 }
 
 page-panel:first-of-type, /* header and footer */
-page-panel:last-of-type {grid-template-columns: 1fr auto 1fr;}
+page-panel:last-of-type {grid-template-columns: 1fr min-content 1fr;}
 
 page-panel:not(:first-of-type):not(:last-of-type) {
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: min-content 1fr min-content;
 }
 
 page-panel-header,
 page-panel-footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: min-content;
 }
 
 page-panel-content {
@@ -68,7 +68,7 @@ panel-list {
 panel-list-header,
 list-item {
   display: grid;
-  grid-template-columns: repeat(auto);
+  grid-template-columns: repeat( auto-fit, minmax(1rem, 1fr) );
   grid-template-rows: auto;
 }
 
