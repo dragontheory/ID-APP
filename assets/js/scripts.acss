@@ -1,0 +1,45 @@
+lit-item: click {
+  
+}
+list-item:click {
+  var-el: activeListItem self;
+  ajax: "https://my-json-server.typicode.com/dragontheory/D7460N-data/names/{@data-id}" get json await;
+}
+
+target-element:not-if-empty:observe {
+  {activeListItem} {
+    add-class: .active;
+  }    
+}
+
+page-panel:nth-of-type(1) list-item:click {
+	var: listOfNames ['Rod', 'Jane', 'Freddy'];
+	#myList {
+		@each name in {listOfNames} {
+			render-before-end: "Hi {name}.<br>";
+		}
+	}
+}
+
+var: listOfItems ['Rod', 'Jane', 'Freddy'];
+@each item in {items} {
+  page-panel-list {
+    render-before-end:
+    "<list-item data-co=\"{liCo}\" data-id=\"{item.id}\">
+      <list-cell>{item.firstName}</list-cell>
+      <list-cell>{item.lastName}</list-cell>
+      <list-cell>{item.streetNum}</list-cell>
+      <list-cell>{item.zipCode}</list-cell>
+      <list-cell>{item.cellPhone}</list-cell>
+    </list-item>";
+    }
+}
+
+@conditional small-to-medium-devices {
+  if-media-max-width: 720px;
+  page-panel: {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+}

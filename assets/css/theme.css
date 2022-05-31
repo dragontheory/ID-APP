@@ -1,0 +1,18 @@
+html, body {
+  background: linear-gradient(#101925, #1f3949);
+  background-size: cover;
+  color: rgba(255,255,255,.8);
+}
+
+.logoLetters {fill: #333;}
+.logoSubLetters {fill: #666;}
+.seal {fill: #999;}
+.logo {max-height: 3rem;}
+
+@media (prefers-color-scheme: dark) {
+  .logoLetters {fill: #CCC;}
+  .logoSubLetters {fill: #999;}
+  .seal {fill: #999;}
+}
+
+page-panel {background-color: rgba(255, 255, 255, 0.02);}
