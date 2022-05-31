@@ -9,7 +9,8 @@ body {
 /*  PAGE-CONTAINER */
 page-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* grid-template-columns: repeat( auto-fit, minmax(1rem, 1fr) ); */
   grid-template-rows: min-content 1fr min-content;
   gap: 1rem;
   padding: 1rem;
@@ -25,11 +26,15 @@ page-panel {
 }
 
 page-panel:first-of-type, /* header and footer */
-page-panel:last-of-type {grid-template-columns: 1fr min-content 1fr;}
+page-panel:last-of-type {
+  grid-column: 1 / -1;
+  grid-auto-flow: column;
+}
 
 page-panel:not(:first-of-type):not(:last-of-type) {
   grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr min-content;
+  grid-auto-flow: row;
 }
 
 page-panel-header,
@@ -60,7 +65,7 @@ app-version {text-align: right;}
 panel-list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: min-content;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -69,7 +74,15 @@ panel-list-header,
 list-item {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(1rem, 1fr) );
-  grid-template-rows: auto;
+  grid-template-rows: min-content;
 }
 
 list-cell {padding: .5rem 1rem;}
+
+list-cell:first-of-type {
+  text-align: start;
+}
+
+list-cell:last-of-type {
+  text-align: end;
+}
