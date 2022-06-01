@@ -8,7 +8,7 @@ html, body {
 
 /*  app-CONTAINER */
 app-container {
-  /* --w: 1fr;
+	/* --w: 1fr;
   --n: 3; */
   display: grid;
   grid-template-columns: 12rem 1fr 12rem;
@@ -24,7 +24,6 @@ app-panel {
   display: grid;
   overflow: hidden;
   border-radius: .3rem;
-  align-items: start;
 }
 
 app-panel:first-of-type, /* header and footer */
@@ -50,7 +49,6 @@ panel-content {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   overflow: hidden;
-  align-items: start;
 }
 
 app-class,
