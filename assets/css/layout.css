@@ -8,28 +8,33 @@ body {
 
 /*  PAGE-CONTAINER */
 page-container {
+	--w: 1fr;
+  --n: 3;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: repeat(var(--n), minmax(0, var(--w)));
+  grid-template-rows: min-content 1fr min-content;
   gap: 1rem;
   padding: 1rem;
   height: 100vh; /* native sticky page header/footer */
   overflow: hidden;
 }
 
-/*  PAGE-PANEL(S) */
 page-panel {
   display: grid;
   overflow: hidden;
   border-radius: .3rem;
+	background-color: rgba(255, 255, 255, 0.03);
 }
 
 page-panel:first-of-type, /* header and footer */
-page-panel:last-of-type {grid-template-columns: 1fr auto 1fr;}
+page-panel:last-of-type {
+  grid-column: 1 / -1;
+  grid-auto-flow: column;
+}
 
 page-panel:not(:first-of-type):not(:last-of-type) {
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: min-content 1fr min-content;
+  padding: 1rem;
 }
 
 page-panel-header,
@@ -65,11 +70,16 @@ panel-list {
   overflow-x: hidden;
 }
 
-panel-list-header,
 list-item {
   display: grid;
-  grid-template-columns: repeat(auto);
   grid-template-rows: auto;
 }
 
+page-panel:nth-of-type(2) list-item {
+  grid-template-columns: 1fr auto;
+}
+
+page-panel:nth-of-type(3) list-item {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
 list-cell {padding: .5rem 1rem;}
