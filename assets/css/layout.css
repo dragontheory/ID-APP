@@ -25,7 +25,6 @@ app-panel {
   overflow: hidden;
   border-radius: .3rem;
   align-items: start;
-	background-color: rgba(255, 255, 255, 0.03);
 }
 
 app-panel:first-of-type, /* header and footer */
@@ -36,7 +35,6 @@ app-panel:last-of-type {
 
 app-panel:not(:first-of-type):not(:last-of-type) {
   grid-template-rows: min-content 1fr min-content;
-  padding: 1rem;
 }
 
 panel-header,
@@ -44,6 +42,7 @@ panel-footer {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto;
+  padding: 1rem;
 }
 
 panel-content {
@@ -69,6 +68,7 @@ panel-list {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
+  gap: .5rem;
   overflow: auto;
 }
 
@@ -83,7 +83,7 @@ app-panel:nth-of-type(4) list-item {
 }
 
 app-panel:nth-of-type(3) list-item {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
 }
 
 list-cell {padding: 1rem .5rem;}
