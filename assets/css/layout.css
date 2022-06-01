@@ -8,8 +8,8 @@ html, body {
 
 /*  app-CONTAINER */
 app-container {
-	--w: 1fr;
-  --n: 3;
+	/* --w: 1fr;
+  --n: 3; */
   display: grid;
   grid-template-columns: 12rem 1fr 12rem;
   /* grid-template-columns: repeat(var(--n), minmax(0, var(--w))); */
@@ -86,4 +86,4 @@ app-panel:nth-of-type(3) list-item {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-list-cell {padding: .5rem 1rem;}
+list-cell {padding: 1rem .5rem;}
