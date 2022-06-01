@@ -42,7 +42,7 @@ app-panel:not(:first-of-type):not(:last-of-type) {
 panel-header,
 panel-footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr auto;
   grid-template-rows: auto;
 }
 
