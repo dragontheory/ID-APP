@@ -77,6 +77,10 @@ list-item {
   grid-template-rows: auto;
 }
 
+list-item:first-of-type {
+  margin-top: .5rem;
+}
+
 app-panel:nth-of-type(2) list-item,
 app-panel:nth-of-type(4) list-item {
   grid-template-columns: 1fr auto;
