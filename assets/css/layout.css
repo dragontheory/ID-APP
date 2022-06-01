@@ -8,9 +8,10 @@ body {
 
 /*  PAGE-CONTAINER */
 page-container {
+	--w: 1fr;
+  --n: 3;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  /* grid-template-columns: repeat( auto-fit, minmax(1rem, 1fr) ); */
+  grid-template-columns: repeat(var(--n), minmax(0, var(--w)));
   grid-template-rows: min-content 1fr min-content;
   gap: 1rem;
   padding: 1rem;
@@ -18,11 +19,11 @@ page-container {
   overflow: hidden;
 }
 
-/*  PAGE-PANEL(S) */
 page-panel {
   display: grid;
   overflow: hidden;
   border-radius: .3rem;
+	background-color: rgba(255, 255, 255, 0.03);
 }
 
 page-panel:first-of-type, /* header and footer */
@@ -32,16 +33,15 @@ page-panel:last-of-type {
 }
 
 page-panel:not(:first-of-type):not(:last-of-type) {
-  grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr min-content;
-  grid-auto-flow: row;
+  padding: 1rem;
 }
 
 page-panel-header,
 page-panel-footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: min-content;
+  grid-template-rows: auto;
 }
 
 page-panel-content {
@@ -65,24 +65,21 @@ app-version {text-align: right;}
 panel-list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content;
+  grid-template-rows: auto;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-panel-list-header,
 list-item {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(1rem, 1fr) );
-  grid-template-rows: min-content;
+  grid-template-rows: auto;
 }
 
+page-panel:nth-of-type(2) list-item {
+  grid-template-columns: 1fr auto;
+}
+
+page-panel:nth-of-type(3) list-item {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
 list-cell {padding: .5rem 1rem;}
-
-list-cell:first-of-type {
-  text-align: start;
-}
-
-list-cell:last-of-type {
-  text-align: end;
-}
