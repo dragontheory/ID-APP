@@ -25,4 +25,7 @@ list-item {
   border-radius: .2rem;
 }
 
-list-item:hover {background-color: rgba(102, 175, 233, 0.1);}
+list-item:hover {
+  background-color: rgba(102, 175, 233, 0.1);
+  cursor: pointer;
+}
