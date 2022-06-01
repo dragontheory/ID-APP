@@ -23,6 +23,7 @@ page-panel {
   display: grid;
   overflow: hidden;
   border-radius: .3rem;
+  align-items: start;
 	background-color: rgba(255, 255, 255, 0.03);
 }
 
@@ -44,11 +45,12 @@ page-panel-footer {
   grid-template-rows: auto;
 }
 
-page-panel-content {
+panel-content {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   overflow-y: hidden;
+  align-items: start;
 }
 
 page-class,
