@@ -19,12 +19,14 @@ app-panel:first-of-type, /* header and footer */
 app-panel:last-of-type,
 panel-header,
 panel-footer,
+list-label,
 list-item {
   background-color: rgba(255, 255, 255, 0.02);
   transition: background-color .2s ease-in-out;
   border-radius: .2rem;
 }
 
+list-label:hover,
 list-item:hover {
   background-color: rgba(102, 175, 233, 0.1);
   cursor: pointer;
