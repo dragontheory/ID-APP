@@ -8,7 +8,7 @@ html, body {
 
 /*  app-CONTAINER */
 app-container {
-	/* --w: 1fr;
+  /* --w: 1fr;
   --n: 3; */
   display: grid;
   grid-template-columns: 12rem 1fr 12rem;
