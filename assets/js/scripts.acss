@@ -12,7 +12,7 @@ target-element:not-if-empty:observe {
   }    
 }
 
-page-panel:nth-of-type(1) list-item:click {
+app-panel:nth-of-type(1) list-item:click {
 	var: listOfNames ['Rod', 'Jane', 'Freddy'];
 	#myList {
 		@each name in {listOfNames} {
@@ -23,7 +23,7 @@ page-panel:nth-of-type(1) list-item:click {
 
 var: listOfItems ['Rod', 'Jane', 'Freddy'];
 @each item in {items} {
-  page-panel-list {
+  app-panel-list {
     render-before-end:
     "<list-item data-co=\"{liCo}\" data-id=\"{item.id}\">
       <list-cell>{item.firstName}</list-cell>
@@ -37,7 +37,7 @@ var: listOfItems ['Rod', 'Jane', 'Freddy'];
 
 @conditional small-to-medium-devices {
   if-media-max-width: 720px;
-  page-panel: {
+  app-panel: {
     width: 100%;
     height: 100%;
     overflow: auto;
