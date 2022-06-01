@@ -1,6 +1,6 @@
 *:before, *:after, *, ::after, ::before {box-sizing: border-box;}
 
-body {
+html, body {
   padding: 0;
   margin: 0;  
   overflow: hidden;
@@ -11,7 +11,8 @@ app-container {
 	--w: 1fr;
   --n: 3;
   display: grid;
-  grid-template-columns: repeat(var(--n), minmax(0, var(--w)));
+  grid-template-columns: 12rem 1fr 12rem;
+  /* grid-template-columns: repeat(var(--n), minmax(0, var(--w))); */
   grid-template-rows: min-content 1fr min-content;
   gap: 1rem;
   padding: 1rem;
@@ -38,8 +39,8 @@ app-panel:not(:first-of-type):not(:last-of-type) {
   padding: 1rem;
 }
 
-app-panel-header,
-app-panel-footer {
+panel-header,
+panel-footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -49,7 +50,7 @@ panel-content {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  overflow-y: hidden;
+  overflow: hidden;
   align-items: start;
 }
 
@@ -68,8 +69,7 @@ panel-list {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
 }
 
 list-item {
