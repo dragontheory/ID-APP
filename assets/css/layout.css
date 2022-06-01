@@ -82,4 +82,5 @@ page-panel:nth-of-type(2) list-item {
 page-panel:nth-of-type(3) list-item {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+
 list-cell {padding: .5rem 1rem;}
