@@ -1,6 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Chathura:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geo:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@400&display=swap');
+
+/* https://gist.github.com/hsleonis/55712b0eafc9b25f1944 */
+html {
+  /* Font variant */
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  /* Smoothing */
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,0.01) 0 0 1px;
+}
+
 body {
   font-family: 'Oxanium', sans-serif;
   font-size: 1rem;
+}
+
+panel-header {
+  font-family: 'Smooch Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+}
+
+list-label {
+  font-family: 'Smooch Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 0.05rem;
 }
