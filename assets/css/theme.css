@@ -1,7 +1,12 @@
 html, body {
-  background: linear-gradient(#101925, #1f3949);
+  /* background: linear-gradient(#101925, #1f3949); */
+  background-color: #393F4A;
   background-size: cover;
-  color: rgba(255,255,255,.8);
+  color: rgba(255,255,255,.6);
+}
+
+panel-header {
+  color:rgba(255,255,255,0.8)
 }
 
 .logoLetters {fill: #333;}
@@ -15,19 +20,71 @@ html, body {
   .seal {fill: #999;}
 }
 
+list-label {
+  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.3),
+              inset 0 1px 0 0 rgba(255,255,255,0.0);
+}
+
 app-panel:first-of-type, /* header and footer */
 app-panel:last-of-type,
 panel-header,
 panel-footer,
 list-label,
 list-item {
-  background-color: rgba(255, 255, 255, 0.02);
+  /* background-color: rgba(255, 255, 255, 0.02); */
+  background-color: rgba(255, 255, 255, 0.04);
   transition: background-color .2s ease-in-out;
   border-radius: .2rem;
 }
 
+
+
+app-panel:nth-of-type(2) panel-header,
+app-panel:nth-of-type(4) panel-header {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-start-start-radius: .2rem;
+  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.3),
+              inset 0 1px 0 0 rgba(255,255,255,0.0);
+}
+
+app-panel:nth-of-type(2) list-label,
+app-panel:nth-of-type(4) list-label {
+  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.3),
+              inset 0 1px 0 0 rgba(255,255,255,0.1);
+}
+
 list-label:hover,
-list-item:hover {
-  background-color: rgba(102, 175, 233, 0.1);
+list-item:not(panel-list-header list-item):hover {
+  background-color: rgba(117,193,255,0.3);
   cursor: pointer;
+}
+
+app-panel:nth-of-type(2) list-item,
+app-panel:nth-of-type(4) list-item {
+  grid-template-columns: 1fr auto;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.3),
+              inset 0 1px 0 0 rgba(255,255,255,0.1);
+}
+
+app-panel:nth-of-type(2) list-item:first-of-type,
+app-panel:nth-of-type(4) list-item:first-of-type {
+  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.3),
+              inset 0 1px 0 0 rgba(255,255,255,0.0);
+}
+
+app-panel:nth-of-type(2) list-item:last-of-type,
+app-panel:nth-of-type(4) list-item:last-of-type {
+  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.0),
+              inset 0 1px 0 0 rgba(255,255,255,0.1);
+}
+
+app-panel:nth-of-type(3) panel-header,
+app-panel:nth-of-type(3) panel-footer {
+  background-color: transparent;
+}
+
+app-panel:nth-of-type(3) panel-list {
+  margin-top: .5rem;
 }
