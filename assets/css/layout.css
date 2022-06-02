@@ -11,7 +11,7 @@ app-container {
 	/* --w: 1fr;
   --n: 3; */
   display: grid;
-  grid-template-columns: 12rem 1fr 12rem;
+  grid-template-columns: 13rem 1fr 14rem;
   /* grid-template-columns: repeat(var(--n), minmax(0, var(--w))); */
   grid-template-rows: min-content 1fr min-content;
   gap: 1rem;
@@ -32,9 +32,7 @@ app-panel:last-of-type {
   grid-template-columns: 1fr auto 1fr;
 }
 
-app-panel:not(:first-of-type):not(:last-of-type) {
-  grid-template-rows: min-content 1fr min-content;
-}
+app-panel:not(:first-of-type):not(:last-of-type) {grid-template-rows: min-content 1fr min-content;}
 
 panel-header,
 panel-footer {
@@ -61,6 +59,13 @@ app-version {text-align: right;}
 
 /* https://dev.to/kathryngrayson/you-probably-dont-need-media-queries-anymore-a4j */
 
+list-label {
+  display: grid;
+  grid-template-rows: auto;
+  padding: .5rem 1rem;
+  border-radius: 0;
+}
+
 /*  PANEL-LIST(S) */
 panel-list {
   display: grid;
@@ -70,25 +75,25 @@ panel-list {
   overflow: auto;
 }
 
-list-label,
 list-item {
   display: grid;
   grid-template-rows: auto;
 }
 
-list-item:first-of-type {
-  margin-top: .5rem;
-}
+app-panel:nth-of-type(2) panel-list,
+app-panel:nth-of-type(4) panel-list {gap: 0;}
 
-list-label,
-app-panel:nth-of-type(2) list-item,
-app-panel:nth-of-type(4) list-item {
-  grid-template-columns: 1fr auto;
-}
+app-panel:nth-of-type(2) list-cell,
+app-panel:nth-of-type(4) list-cell {padding: .5rem 1rem;}
 
-app-panel:nth-of-type(3) list-item {
-  grid-template-columns: 1fr 1fr 1fr 1fr auto;
-}
+app-panel:nth-of-type(3) list-item {grid-template-columns: 1fr 1fr 1fr 1fr auto;}
 
-list-label,
-list-cell {padding: 1rem .5rem;}
+app-panel:nth-of-type(3) panel-header {padding: 0 0 1rem 0;}
+
+list-cell {padding: 1rem;}
+
+
+
+/* app-panel:nth-of-type(2) panel-list {
+  height: auto;
+} */
