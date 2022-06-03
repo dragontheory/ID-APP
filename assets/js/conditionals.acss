@@ -1,0 +1,111 @@
+body:init {
+  var: totalRecords 243;
+  var: currentUserID "";
+}
+
+window:resize {
+  panel-list[data-list="results"] {trigger: setup;}
+}
+
+panel-list[data-list="results"]:setup {
+  var: totalVisible 0,
+       totalNonVisible 0,
+       liCo 0,
+       startingLiCo 0;
+  panel-list[data-list="results"] list-item {var: liCo++;}
+  panel-list[data-list="results"] {trigger: countRows;}
+}
+
+panel-list[data-list="results"]:countRows {
+  @for n from {startingLiCo} + 1 to {liCo} {
+    @if completely-visible(li[data-co="{n}"] scope(panel-list[data-list="results"])) {var: totalVisible++;} 
+	@else {var: totalNonVisible++;}
+  }
+  #totalVisible {
+    @if {totalVisible} < 10 {render: "0{totalVisible}";} 
+	@else {render: "{totalVisible}";}
+  }
+  #totalNonVisible {
+    @if {totalNonVisible} < 10 {render: 0{totalNonVisible};} 
+	@else {render: {totalNonVisible};}
+  }
+}
+
+&:componentOpen {
+  panel-list[data-list="results"] {
+    ajax: "https://my-json-server.typicode.com/dragontheory/D7460N-data/names/" get json await;
+    console-log: "getting here";
+    trigger: setup;
+    var: startingLiCo {liCo};
+    @each item in {JSON} {
+      var: liCo++;
+      render-before-end:
+      "<list-item data-co=\"{liCo}\" data-id=\"{item.id}\">
+        <list-cell>
+          <input type="checkbox" id="" name="table-row" value="" />
+        </list-cell>
+        <list-cell>{item.id}</list-cell>
+        <list-cell>{item.name}</list-cell>
+        <list-cell>{item.username}</list-cell>
+        <list-cell><a href=\"https://{item.website}\" target=\"_new\">{item.website}</a></list-cell>
+        <list-cell><a href=\"mailto:{item.email}\" target=\"_new\">{item.email}</a></list-cell>
+      </list-item>";
+    }
+    trigger: countRows;
+  }
+}
+
+
+/* Check if the current user is the same one in the <panel-list> <list-item> */
+panel-list[data-list="results"] list-item:not-if-var(currentUserID "{@data-id}"):click {
+  var: currentUserID "{@data-id}";
+  ajax: "https://my-json-server.typicode.com/dragontheory/D7460N-data/names/{@data-id}" get json await;
+  var: item {JSON};
+  take-class: .active scope(panel-list[data-list="results"]);
+  panel-list[data-list="results"] {
+    render: "<list-item><list-cell>ID</list-cell><list-cell>{item.id}</list-cell></list-item>
+             <list-item><list-cell>name</list-cell><list-cell>{item.name}</list-cell></list-item>
+             <list-item><list-cell>username</list-cell><list-cell>{item.username}</list-cell></list-item>
+             <list-item><list-cell>website</list-cell><list-cell><a href=\"https://{item.website}\" target=\"_new\">{item.website}</a></list-cell></list-item>
+             <list-item><list-cell>email</list-cell><list-cell><a href=\"mailto:{item.email}\" target=\"_new\">{item.email}</a></list-cell></list-item>";
+  }
+}
+
+panel-list[data-list="results"] list-item:not-if-empty-trimmed(panel-list[data-list="results"]):if-var(currentUserID "{@data-id}"):click {
+  panel-list[data-list="results"] {
+    render: "";
+    var: currentUserID "";
+  }
+}
+
+close-panel:not-if-empty-trimmed(panel-list[data-list="results"]):click,
+panel-list[data-list="results"] list-item:click {
+  panel-list[data-list="details"] {
+    render: "";
+    var: currentUserID "";
+  }
+  panel-list[data-list="results"] list-item {remove-class: .active;}
+}
+
+
+/* Add .aside to <body> the moment <table-details> ol is NOT empty. */
+panel-list[data-list="details"]:not-if-empty:observe {
+  body {add-class: .aside;}
+}
+/* Remove .aside from <body> the moment <table-details> ol IS empty. */
+panel-list[data-list="results"]:if-empty:observe, panel-list[data-list="details"]:if-empty:observe {
+  body {remove-class: .aside;}
+  page-container {remove-attribute: style;}
+}
+
+&:componentOpen {
+  run: {=
+    Split({
+      columnGutters: [{
+        track: 3,
+        element: document.querySelector('splitter-panel'),
+        }]
+      });
+  =};
+}
+

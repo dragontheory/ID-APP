@@ -1,6 +1,3 @@
-lit-item: click {
-  
-}
 list-item:click {
   var-el: activeListItem self;
   ajax: "https://my-json-server.typicode.com/dragontheory/D7460N-data/names/{@data-id}" get json await;
