@@ -1,3 +1,14 @@
+:root {
+  /* LIGHT THEME */
+  --light-theme-app-bg: #CCCCCC;
+  
+  /* DARK THEME */
+  --dark-theme-app-bg: #393F4A;
+
+  /* BLUE THEME */
+  --blue-theme-app-bg: linear-gradient(#101925, #1f3949);
+}
+
 html, body {
   /* background: linear-gradient(#101925, #1f3949); */
   background-color: #393F4A;
