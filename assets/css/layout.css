@@ -38,14 +38,10 @@ panel-header,
 panel-footer {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-rows: auto;
-  padding: .5rem 1rem;
 }
 
 panel-content {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   overflow: hidden;
 }
 
@@ -88,9 +84,13 @@ app-panel:nth-of-type(4) list-cell {padding: .5rem 1rem;}
 
 app-panel:nth-of-type(3) list-item {grid-template-columns: 1fr 1fr 1fr 1fr auto;}
 
-app-panel:nth-of-type(3) panel-header {padding: 0 0 1rem 0;}
+app-panel:nth-of-type(3) panel-title {padding: 0 0 1rem 0;}
 
 list-cell {padding: 1rem;}
+
+meta-data {
+  padding: .5rem 1rem;
+}
 
 
 
