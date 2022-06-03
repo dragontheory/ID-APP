@@ -13,7 +13,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,0.01) 0 0 1px;
+  text-shadow: rgba(0,0,0,0.75) -1px 1px 0;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
 }
 
 panel-title {
-  font-family: 'Smooch Sans', sans-serif;
+  font-family: 'Agency FB', sans-serif;
   text-transform: uppercase;
   font-size: 1.3rem;
   letter-spacing: 0.08rem;
@@ -50,7 +50,7 @@ panel-pagination span:hover {
 }
 
 list-label {
-  font-family: 'Smooch Sans', sans-serif;
+  font-family: 'Agency FB', sans-serif;
   text-transform: uppercase;
   font-size: 1.3rem;
   letter-spacing: 0.05rem;
