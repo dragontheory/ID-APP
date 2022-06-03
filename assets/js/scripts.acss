@@ -1,3 +1,129 @@
+body:init {
+  panel-list[data-list="results"] {trigger: setup after 100ms;}
+  trigger: countRows
+}
+
+window:resize {
+  panel-list[data-list="results"] {trigger: setup;}
+  [data-list="apps"] {remove-property: height;}
+}
+
+meta-label:innerhtmlchange {
+  [data-list="apps"] list-item {
+    @if inner-text("{#metaLabel}") {
+      take-class: .active-app;
+    }
+  }
+}
+
+panel-list[data-list="results"]:setup {
+  var: totalVisible 0,
+       totalNonVisible 0,
+       liCo 0,
+       startingLiCo 0;
+  panel-list[data-list="results"] list-item {var: liCo++;}
+  panel-list[data-list="results"] {trigger: countRows;}
+}
+
+panel-list[data-list="results"]:countRows {
+  @for n from {startingLiCo} + 1 to {liCo} {
+    @if completely-visible(list-item[data-list-item="{n}"]) {var: totalVisible++;} 
+    @else {var: totalNonVisible++;}
+  }
+  #totalVisible {
+    @if {totalVisible} < 10 {render: 0{totalVisible};} 
+    @else {render: {totalVisible};}
+  }
+  #totalNonVisible {
+    @if {totalNonVisible} < 10 {render: 0{totalNonVisible};}
+    @else {render: {totalNonVisible};}
+  }
+}
+
+panel-list[data-list="results"] list-item:click {
+  panel-list[data-list="results"] list-item {remove-class: .active;}
+  add-class: active-li;
+  /* func: sendRowToAngular; */
+  panel-list[data-list="details"] list-cell {
+    fade-out: 25ms 0.5 grid await;
+    fade-in: 25ms 1.0 grid;
+  }
+}
+
+/* close-panel:click {func:sendRowToAngular;} */
+
+body:if-exists(panel-list[data-list="details"] list-item):observe {add-class: .aside;}
+
+body:not-if-exists(panel-list[data-list="details"] list-item):observe {
+  remove-class: .aside;
+  panel-list[data-list="details"] list-item {remove-class: .active;}
+}
+
+input.text-filter:click {
+  var: currentHeight window.getComputedStyle(document.querySelector('[data-list="apps"]'), null).getPropertyValue("height");
+  [data-list="apps"] {
+    height: {currentHeight};
+  }
+}
+
+label[for="navToggleApps"]:click,
+label[for="navToggleDatasets"]:click {
+  [data-list="apps"] {
+    remove-property: height;
+  }
+}
+
+[data-list="datasets"] list-item:click {
+  take-class: .active scope([data-list="datasets"]);
+  mimic-into: #datasetSearchTerm;
+  func: filterByDataset;
+}
+
+[data-list="apps"] list-item:click {
+  take-class: .active scope([data-list="apps"]);
+  mimic-into: #appSearchTerm;
+  func: filterByApplication;
+}
+
+reset-filter:click {
+  [data-list="datasets"] list-item {remove-class: .active scope([data-list="datasets"]);}
+  [data-list="apps"] list-item {remove-class: .active scope([data-list="apps"]);}
+  func: clearFilter;
+  [data-list="apps"] {
+    remove-property: height;
+  }
+}
+
+[data-list="apps"]:not-if-empty:observe {
+  var: currentHeight window.getComputedStyle(document.querySelector('[data-list="apps"]'), null).getPropertyValue("height");
+  [data-list="apps"] {
+    height: {currentHeight};
+  }
+}
+
+body:if-exists(panel-list[data-list="results"] list-item):observe {
+  add-class: .main;
+  remove-class: .intro;
+}
+
+body:if-not-exists(panel-list[data-list="results"] list-item):observe {
+  add-class: .intro;
+  remove-class: .main;
+  remove-class: .aside;
+}
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------- */
+
+
+
+
+
 list-item:click {
   var-el: activeListItem self;
   ajax: "https://my-json-server.typicode.com/dragontheory/D7460N-data/names/{@data-id}" get json await;
