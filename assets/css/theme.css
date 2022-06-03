@@ -1,7 +1,7 @@
 :root {
   /* LIGHT THEME */
   --light-theme-app-bg: #CCCCCC;
-  
+
   /* DARK THEME */
   --dark-theme-app-bg: #393F4A;
 
@@ -94,8 +94,4 @@ app-panel:nth-of-type(4) list-item:last-of-type {
 app-panel:nth-of-type(3) panel-header,
 app-panel:nth-of-type(3) panel-footer {
   background-color: transparent;
-}
-
-app-panel:nth-of-type(3) panel-list {
-  margin-top: .5rem;
 }
