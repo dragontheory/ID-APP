@@ -50,6 +50,16 @@ user-name,
 powered-by,
 app-version {padding: 1rem;}
 
+app-class {
+  color: rgba(255,255,255,0.3);
+  text-shadow: 1px -1px 1px rgba(0,0,0,0.4);
+  font-family: 'Agency FB';
+  letter-spacing: 0.09rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transform: scale(1.0, 0.8);
+}
+
 user-name,
 app-version {text-align: right;}
 
@@ -57,23 +67,23 @@ app-version {text-align: right;}
 
 list-label {
   display: grid;
-  grid-template-rows: auto;
-  padding: .5rem 1rem;
+  grid-template-columns: 1fr auto;
   border-radius: 0;
+}
+
+list-label span {
+  padding: .5rem 1rem;
 }
 
 /*  PANEL-LIST(S) */
 panel-list {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
   gap: .5rem;
   overflow: auto;
 }
 
 list-item {
   display: grid;
-  grid-template-rows: auto;
 }
 
 app-panel:nth-of-type(2) panel-list,
@@ -91,6 +101,10 @@ app-panel:nth-of-type(3) panel-list {margin-top: .5rem;}
 list-cell {padding: 1rem;}
 
 meta-data {
+  color: rgba(255,255,255,0.3);
+  text-shadow: 1px -1px 1px rgba(0,0,0,0.4);
+  font-family: 'Agency FB';
+  letter-spacing: 0.09rem;
   padding: .5rem 1rem;
 }
 
