@@ -23,7 +23,10 @@ panel-header {
 .logoLetters {fill: #333;}
 .logoSubLetters {fill: #666;}
 .seal {fill: #999;}
-.logo {max-height: 3rem;}
+.logo {
+  max-height: 3rem;
+  margin-left: 1rem;
+}
 
 @media (prefers-color-scheme: dark) {
   .logoLetters {fill: #CCC;}
