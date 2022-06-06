@@ -24,7 +24,7 @@ body {
 panel-title {
   font-family: 'Agency FB', sans-serif;
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 0.08rem;
   padding: .5rem 1rem;
 }
@@ -52,6 +52,6 @@ panel-pagination span:hover {
 list-label {
   font-family: 'Agency FB', sans-serif;
   text-transform: uppercase;
-  font-size: 1.3rem;
-  letter-spacing: 0.05rem;
+  font-size: 1.0rem;
+  letter-spacing: 0.06rem;
 }
