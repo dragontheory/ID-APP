@@ -7,7 +7,7 @@
 
 /* scrollbar width */
 ::-webkit-scrollbar {
-  width: .4rem; /* Chrome and Edge track width */
+  /* width: 10px;  Chrome and Edge track width */
   cursor: pointer; /* doesn't work as of 2022.05.24 */
 }
 
