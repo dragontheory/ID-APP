@@ -112,11 +112,6 @@ meta-label {
   font-size: .7rem;
   padding: .5rem 1rem;
 }
-meta-label {
-  font-size: 0.7rem;
-}
-
-
 
 /* app-panel:nth-of-type(2) panel-list {
   height: auto;
