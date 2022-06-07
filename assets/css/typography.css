@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Geo:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@400&display=swap');
+@import url('http://fonts.cdnfonts.com/css/agencyfb-2');
 
 /* https://gist.github.com/hsleonis/55712b0eafc9b25f1944 */
 html {
@@ -22,7 +23,7 @@ body {
 }
 
 panel-title {
-  font-family: 'Agency FB', sans-serif;
+  font-family: 'agency_fb', sans-serif;
   text-transform: uppercase;
   font-size: 1.1rem;
   letter-spacing: 0.08rem;
@@ -32,7 +33,7 @@ panel-title {
 panel-pagination {
   
   font-size: 1rem;
-  font-family: 'Agency FB', sans-serif;
+  font-family: 'agency_fb', sans-serif;                                                
   /* font-family: 'Smooch Sans', sans-serif; */
   color: rgba(255,255,255,0.3);
   
@@ -50,7 +51,7 @@ panel-pagination span:hover {
 }
 
 list-label {
-  font-family: 'Agency FB', sans-serif;
+  font-family: 'agency_fb', sans-serif;
   text-transform: uppercase;
   font-size: 1.0rem;
   letter-spacing: 0.06rem;
