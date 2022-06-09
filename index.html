@@ -14,18 +14,9 @@
     <link type="text/css" rel="stylesheet" href="assets/css/typography.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/scrollbars.css" />
     <style type="text/acss">
-      app-panel:nth-of-type(2) list-label:nth-of-type(1):click {
-        app-panel:nth-of-type(2) panel-list:nth-of-type(1) {
-          toggle-class: .close;
-        }
-      }
-      app-panel:nth-of-type(2) list-label:nth-of-type(2):click {
-        app-panel:nth-of-type(2) panel-list:nth-of-type(2) {
-          toggle-class: .close;
-        }
-      }
-      app-panel:nth-of-type(2) list-label:nth-of-type(3):click {
-        app-panel:nth-of-type(2) panel-list:nth-of-type(3) {
+      /* Toggle panel-list open/close by clicking list-label */
+      app-panel list-label:click {
+        self + panel-list {
           toggle-class: .close;
         }
       }
