@@ -73,7 +73,7 @@ list-label {
   border-radius: 0;
 }
 
-list-label span {
+list-label > span {
   padding: .5rem 1rem;
 }
 
@@ -112,6 +112,31 @@ meta-label {
   font-size: .7rem;
   padding: .5rem 1rem;
 }
+
+meta-data span {color: rgba(255,255,255,0.5);}
+
+reset-panel,
+close-panel {
+  color: rgba(255,255,255,0.3);
+  font-family: 'agency_fb', sans-serif;
+  text-shadow: 1px -1px 1px rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  font-size: .7rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  align-self: center;
+}
+reset-panel span,
+close-panel span {
+  color: rgba(255,255,255,0.5);
+  transition: color 250ms;
+}
+
+reset-panel:hover span,
+close-panel:hover span {color: rgba(117,193,255,1.0);}
+
+.close {height: 0;}
 
 /* app-panel:nth-of-type(2) panel-list {
   height: auto;

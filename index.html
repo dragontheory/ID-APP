@@ -14,8 +14,34 @@
     <link type="text/css" rel="stylesheet" href="assets/css/typography.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/scrollbars.css" />
     <style type="text/acss">
-      body:click {alert: "Hello, I am an Active CSS event in an embedded tag!";}
-     </style>
+      app-panel:nth-of-type(2) list-label:nth-of-type(1):click {
+        app-panel:nth-of-type(2) panel-list:nth-of-type(1) {
+          toggle-class: .close;
+        }
+      }
+      app-panel:nth-of-type(2) list-label:nth-of-type(2):click {
+        app-panel:nth-of-type(2) panel-list:nth-of-type(2) {
+          toggle-class: .close;
+        }
+      }
+      app-panel:nth-of-type(2) list-label:nth-of-type(3):click {
+        app-panel:nth-of-type(2) panel-list:nth-of-type(3) {
+          toggle-class: .close;
+        }
+      }
+
+      reset-panel:click {
+        app-panel:nth-of-type(2) panel-list:nth-of-type(1) {
+          remove-class: .close;
+        }
+        app-panel:nth-of-type(2) panel-list:nth-of-type(2) {
+          remove-class: .close;
+        }
+        app-panel:nth-of-type(2) panel-list:nth-of-type(3) {
+          remove-class: .close;
+        }
+      }
+    </style>
   </head>
 
   <body style="opacity: 0.0; transition: opacity 1s ease-in-out;">
@@ -34,11 +60,12 @@
       <app-panel>
         <panel-header>
           <panel-title>home</panel-title>
+          <reset-panel title="Reset panel">[ <span>reset</span> ]</reset-panel>
         </panel-header>
         <panel-content>
           <list-label>
             <span>CLASSES</span>
-            <meta-data>::</meta-data>
+            <meta-data>[ <span>132</span> ]</meta-data>
           </list-label>
           <panel-list>
             <list-item>
@@ -140,7 +167,7 @@
           </panel-list>
           <list-label>
             <span>Families/Students</span>
-            <meta-data>[ 132 ]</meta-data>
+            <meta-data>[ <span>132</span> ]</meta-data>
           </list-label>
           <panel-list>
             <list-item>
@@ -242,7 +269,7 @@
           </panel-list>
           <list-label>
             <span>SCHEDULES</span>
-            <meta-data>::</meta-data>
+            <meta-data>[ <span>132</span> ]</meta-data>
           </list-label>
           <panel-list>
             <list-item>
@@ -345,7 +372,7 @@
         </panel-content>
         <panel-footer>
           <meta-label>meta</meta-label>
-          <meta-data>321</meta-data>
+          <meta-data>[ <span>132</span> ]</meta-data>
         </panel-footer>
       </app-panel>
       <!--- NAV END -->
@@ -468,6 +495,7 @@
       <app-panel>
         <panel-header>
           <panel-title>title</panel-title>
+          <close-panel title="Close panel">[ <span>x</span> ]</close-panel>
         </panel-header>
         <panel-content>
           <panel-list>
@@ -487,7 +515,7 @@
         </panel-content>
         <panel-footer>
           <meta-label>meta</meta-label>
-          <meta-data>321</meta-data>
+          <meta-data>[ <span>132</span> ]</meta-data>
         </panel-footer>
       </app-panel>
       <!--- ASIDE END -->
