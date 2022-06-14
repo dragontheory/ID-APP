@@ -27,22 +27,6 @@
         self {add-class: .close;}
       }
 
-      list-main:not-if-exists(list-main list-item):observe {
-        body {
-          add-class: intro;
-          remove-class: .main;
-          remove-class .aside;
-        }
-      }
-      list-main list-item: click {
-        take-class: .active;
-        func: sendRowToAngular;
-        list-details list-cell {
-          fade-out: 25ms 0.5 grid await;
-          fade-in: 25ms 1.0 grid;
-        }
-      }
-      
       @command conditional if-html-contains {=
         return (eventSelector.innerHTML.indexof(conditionalValue)!== -1) ? true : false;
       =}
