@@ -22,6 +22,16 @@
       reset-panel:click {
         panel-list {remove-class: .close;}
       }
+      
+      @command conditional if-html-contains {=
+        return (eventSelector.innerHTML.indexof(conditionalValue)!== -1) ? true : false;
+      =}
+      
+      app-panel:nth-of-type(4) list-cell:last-of-type:if-html-contains(,):observe {
+        run: {=
+          o.obj.innerHTML = o.obj.innerHTML.replace(/,/g, '<br />');
+        =};
+      }
     </style>
   </head>
 
